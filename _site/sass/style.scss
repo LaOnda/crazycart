@@ -1,0 +1,196 @@
+/* ---------------------------------------- *\
+   DataSift Crazy Cart Leaderboard
+\* ---------------------------------------- */
+
+@import 'normalize';
+@import 'mixins';
+
+$accent: #859bb6;
+
+$first-position-color: #ff8711;
+$second-position-color: #f36a50;
+$third-position-color: #e244a7;
+
+/* ---------------------------------------- *\
+   Structure
+\* ---------------------------------------- */
+
+html {
+	min-height: 100%;
+	color: $accent;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	font-size: 125%;
+}
+
+body {
+	min-height: 100%;
+	padding: 40px;
+}
+
+.width {
+	margin: 0 auto;
+	max-width: 600px;
+}
+
+/* ---------------------------------------- *\
+   Page Title
+\* ---------------------------------------- */
+
+h1 {
+	@extend .width;
+	text-align: center;
+	font-size: .875em;
+	margin: 0 auto 40px auto;
+	text-transform: uppercase;
+	color: $accent;
+	font-weight: 100;
+
+	span {
+		font-size: 1.75em;
+		display: block;
+	}
+
+}
+
+hr {
+	border: 0;
+	line-height: 0;
+	height: 0;
+	width: 80px;
+	margin: 40px auto;
+	border-bottom: 1px solid $accent;
+}
+
+/* ---------------------------------------- *\
+   Time list
+\* ---------------------------------------- */
+
+.time-list {
+	margin: 0 auto;
+	@extend .width;
+
+	div {
+		position: relative;
+		overflow: hidden;
+		padding: 10px 0 10px 40px;
+	}
+
+	.other {
+		@include animation(fadeInUp, 600ms, 700ms, ease, backwards);
+	}
+
+	.position {
+		position: absolute;
+		left: 0;
+		color: $accent;
+		font-weight: 300;
+	}
+
+	.name {
+        /* nothing to see here */
+    }
+
+	.time {
+		float: right;
+
+        @media screen and (max-width:600px) {
+        	display: block;
+        	float: none;
+        	color: $accent;
+        }
+
+	}
+
+/* Leader
+\* ---------------------------------------- */
+
+	.position-1,
+	.position-2,
+	.position-3 {
+
+		&.position-1 {
+			@include animation(fadeInUp, 600ms, 100ms, ease, backwards);
+			color: $first-position-color;
+		}
+
+		&.position-2 {
+			@include animation(fadeInUp, 600ms, 300ms, ease, backwards);
+			color: $second-position-color
+		}
+
+		&.position-3 {
+			@include animation(fadeInUp, 600ms, 500ms, ease, backwards);
+			color: $third-position-color
+		}
+
+	}
+
+}
+
+.updated {
+	@extend .width;
+	margin-top: 40px;
+	font-size: .75em;
+	text-align: right;
+	color: $accent;
+}
+
+/* ---------------------------------------- *\
+   Animations
+\* ---------------------------------------- */
+
+@-webkit-keyframes fadeInUp {
+    from {
+        @include opacity(0);
+        -webkit-transform: translateY(20px);
+    }
+    to {
+        @include opacity(100);
+        -webkit-transform: translateY(0);
+    }
+}
+
+@-moz-keyframes fadeInUp {
+    from {
+        @include opacity(0);
+        -moz-transform: translateY(20px);
+    }
+    to {
+        @include opacity(100);
+        -moz-transform: translateY(0);
+    }
+}
+
+@-ms-keyframes fadeInUp {
+    from {
+        @include opacity(0);
+        -ms-transform: translateY(20px);
+    }
+    to {
+        @include opacity(100);
+        -ms-transform: translateY(0);
+    }
+}
+
+@-o-keyframes fadeInUp {
+    from {
+        @include opacity(0);
+        -o-transform: translateY(20px);
+    }
+    to {
+        @include opacity(100);
+        -o-transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        @include opacity(0);
+        transform: translateY(20px);
+    }
+    to {
+        @include opacity(100);
+        transform: translateY(0);
+    }
+}
