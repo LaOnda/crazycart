@@ -11,7 +11,7 @@ title: DataSift Crazy Cart Leaderboard
 {% for result in site.data.times %}
 	<div class="{% if forloop.index == 1 or forloop.index == 2 or forloop.index == 3 %}position-{{ forloop.index }}{% else %}other{% endif %}">
 		<span class="position">{{ forloop.index }}</span>
-		<span class="name">{{ result.name }}</span>
+		<span class="name">{{ result.name }}{% if result.video %}<a href="{{ result.video }}" class="video"></a>{% endif %}</span>
 		<span class="time">{{ result.time }}</span>
 	</div>
 {% endfor %}
